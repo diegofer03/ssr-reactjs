@@ -22,14 +22,14 @@ export const Menu = () => {
         </button>
         <ul>
           <li>
-            <Link to="/" onClick={closeMenu}>
+            <a href="/" onClick={closeMenu}>
               Home
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/galaxias" onClick={closeMenu}>
+            <a href="/galaxias" onClick={closeMenu}>
               Galaxias
-            </Link>
+            </a>
           </li>
         </ul>
       </MenuContainer>
