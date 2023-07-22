@@ -2,11 +2,15 @@ import express, { Express, Request, Response } from 'express'
 import { config } from './config'
 import { render } from './render'
 import axios from 'axios'
+import { webpackMiddleware } from './middlewares/webpackMiddleware'
 
 const app: Express = express()
 
+const isDev = process.env.NODE_ENV !== 'producction'
+
 //OJO funcion necesaria para exponer el archivo js al cliente y funcione app
-app.use(express.static('dist'))
+if(isDev) app.use(webpackMiddleware())
+else app.use(express.static('dist'))
 
 app.get('/galaxias', async (req: Request, res: Response) => {
     try {
